@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Editing the order</h1>
+    <form action="/update_order/{{order[0]}}" method="post">
+        <label for="product">Product:</label>
+        <input type="text" id="product" name="product" value="{{order[2]}}" required>
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" value="{{order[3]}}" required>
+        <label for="price_per_qty">Price_per_Quantity:</label>
+        <input type="number" id="price_per_qty" name="price_per_qty" value="{{order[4]}}" required>
+        <label for="total_price">Total_Price:</label>
+        <input type="number" id="total_price" name="total_price" value="{{order[5]}}" required>
+        <button type="submit">Update Order</button>
+    </form>
+    <a href="/">Back to Home Page</a>
+</body>
+</html>

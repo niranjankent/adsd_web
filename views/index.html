@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Users and their Orders Management System</title>
+</head>
+<body>
+    <h1>Users and their Orders Management System</h1>
+    <form action="/search" method="get">
+        <p>Welcome to the Users and their Orders Management System. This UI interface makes basic CRUD opeartions and search operation for users and their orders table.</p>
+        <input type="text" name="search_term" placeholder="Search by first name" size="10">
+        <button type="submit">Search</button>
+    </form>
+    <table>
+        <tr>
+            <th>User ID</th>
+            <th>First Name</th>
+            <th>Email</th>
+            <th>Orders</th>
+            <th>Action</th>
+        </tr>
+        % for user in users:
+            <tr>
+                <td>{{user[0]}}</td>
+                <td>{{user[1]}}</td>
+                <td>{{user[3]}}</td>
+                <td>
+                    <ul>
+                        % for order in orders[user[0]]:
+                            <li>{{order[2]}} (Quantity: {{order[3]}})</li>
+                        % end
+                    </ul>
+                </td>
+                <td>
+                    <a href="/edit_user/{{user[0]}}">Edit User</a>
+                    <a href="/delete_user/{{user[0]}}">Delete User</a>
+                    <a href="/add_order/{{user[0]}}">Add Order</a>
+                </td>
+            </tr>
+        % end
+    </table>
+    <a href="/add_user">Add User</a>

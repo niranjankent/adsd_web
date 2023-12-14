@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Orders Table</Table></h1>
+    <table>
+        <tr>
+            <th>Order ID</th>
+            <th>User ID</th>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price per Quantity</th>
+            <th>Total Price</th>
+            <th>Action</th>
+        </tr>
+        % for order in orders:
+            <tr>
+                <td>{{order[0]}}</td>
+                <td>{{order[1]}}</td>
+                <td>{{order[2]}}</td>
+                <td>{{order[3]}}</td>
+                <td>{{order[4]}}</td>
+                <td>{{order[5]}}</td>
+                <td>
+                    <a href="/edit_order/{{order[0]}}">Edit Order</a>
+                    <a href="/delete_order/{{order[0]}}">Delete Order</a>
+                </td>
+            </tr>
+        % end
+    </table>
+    <a href="/">Back to Home Page</a>
+</body>
+</html>
